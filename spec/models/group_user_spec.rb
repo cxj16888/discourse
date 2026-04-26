@@ -13,6 +13,41 @@ RSpec.describe GroupUser do
       expect do group_user.destroy! end.to change { group.reload.user_count }.from(1).to(0)
     end
 
+    it "grants group title to user without one" do
+      group.update!(title: "Cool Group")
+
+      Fabricate(:group_user, group: group, user: user)
+
+      expect(user.reload.title).to eq("Cool Group")
+    end
+
+    it "does not overwrite an existing title" do
+      user.update!(title: "Existing Title")
+      group.update!(title: "Cool Group")
+
+      Fabricate(:group_user, group: group, user: user)
+
+      expect(user.reload.title).to eq("Existing Title")
+    end
+
+    it "sets primary_group_id and flair_group_id for a primary group" do
+      group.update!(primary_group: true)
+
+      Fabricate(:group_user, group: group, user: user)
+
+      user.reload
+      expect(user.primary_group_id).to eq(group.id)
+      expect(user.flair_group_id).to eq(group.id)
+    end
+
+    it "grants trust level when group has grant_trust_level" do
+      group.update!(grant_trust_level: 3)
+
+      Fabricate(:group_user, group: group, user: user)
+
+      expect(user.reload.trust_level).to eq(3)
+    end
+
     it "enqueues DeleteInaccessibleNotifications when destroyed" do
       group.add(user)
 
@@ -84,7 +119,9 @@ RSpec.describe GroupUser do
     end
 
     it "doesn't change anything with no configured defaults" do
-      expect { group.add(user) }.to_not change { CategoryUser.count }
+      expect { Fabricate(:group_user, group: group, user: user) }.to_not change {
+        CategoryUser.count
+      }
     end
 
     it "adds new category notifications" do
@@ -94,7 +131,11 @@ RSpec.describe GroupUser do
       group.watching_category_ids = [category4.id]
       group.watching_first_post_category_ids = [category5.id]
       group.save!
-      expect { group.add(user) }.to change { CategoryUser.count }.by(5)
+
+      expect { Fabricate(:group_user, group: group, user: user) }.to change {
+        CategoryUser.count
+      }.by(5)
+
       h = CategoryUser.notification_levels_for(user)
       expect(h[category1.id]).to eq(levels[:muted])
       expect(h[category2.id]).to eq(levels[:regular])
@@ -127,7 +168,9 @@ RSpec.describe GroupUser do
       group.regular_category_ids = [category1.id]
       group.watching_first_post_category_ids = [category2.id, category3.id, category4.id]
       group.save!
-      group.add(user)
+
+      Fabricate(:group_user, group: group, user: user)
+
       h = CategoryUser.notification_levels_for(user)
       expect(h[category1.id]).to eq(levels[:regular])
       expect(h[category2.id]).to eq(levels[:watching_first_post])
@@ -154,7 +197,9 @@ RSpec.describe GroupUser do
       group.muted_category_ids = [category3.id]
       group.tracking_category_ids = [category4.id]
       group.save!
-      group.add(user)
+
+      Fabricate(:group_user, group: group, user: user)
+
       h = CategoryUser.notification_levels_for(user)
       expect(h[category1.id]).to eq(levels[:tracking])
       expect(h[category2.id]).to eq(levels[:watching])
@@ -178,7 +223,7 @@ RSpec.describe GroupUser do
     end
 
     it "doesn't change anything with no configured defaults" do
-      expect { group.add(user) }.to_not change { TagUser.count }
+      expect { Fabricate(:group_user, group: group, user: user) }.to_not change { TagUser.count }
     end
 
     it "adds new tag notifications" do
@@ -188,7 +233,9 @@ RSpec.describe GroupUser do
       group.watching_tags = [tag4.name]
       group.watching_first_post_tags = [tag5.name]
       group.save!
-      expect { group.add(user) }.to change { TagUser.count }.by(5)
+
+      expect { Fabricate(:group_user, group: group, user: user) }.to change { TagUser.count }.by(5)
+
       expect(TagUser.lookup(user, :muted).pluck(:tag_id)).to eq([tag1.id])
       expect(TagUser.lookup(user, :regular).pluck(:tag_id)).to eq([tag2.id])
       expect(TagUser.lookup(user, :tracking).pluck(:tag_id)).to eq([tag3.id])
@@ -204,7 +251,9 @@ RSpec.describe GroupUser do
       group.regular_tags = [tag1.name]
       group.watching_first_post_tags = [tag2.name, tag3.name, tag4.name]
       group.save!
-      group.add(user)
+
+      Fabricate(:group_user, group: group, user: user)
+
       expect(TagUser.lookup(user, :muted).pluck(:tag_id)).to be_empty
       expect(TagUser.lookup(user, :regular).pluck(:tag_id)).to eq([tag1.id])
       expect(TagUser.lookup(user, :tracking).pluck(:tag_id)).to be_empty
@@ -222,7 +271,9 @@ RSpec.describe GroupUser do
       group.muted_tags = [tag3.name]
       group.tracking_tags = [tag2.name]
       group.save!
-      group.add(user)
+
+      Fabricate(:group_user, group: group, user: user)
+
       expect(TagUser.lookup(user, :muted).pluck(:tag_id)).to eq([tag3.id])
       expect(TagUser.lookup(user, :tracking).pluck(:tag_id)).to eq([tag1.id])
       expect(TagUser.lookup(user, :watching).pluck(:tag_id)).to eq([tag2.id])
@@ -305,11 +356,9 @@ RSpec.describe GroupUser do
   describe "#destroy!" do
     fab!(:group)
 
-    it "removes `primary_group_id`, `flair_group_id` and exec `match_primary_group_changes` method on user model" do
+    it "removes `primary_group_id`, `flair_group_id` on user model" do
       user = Fabricate(:user, primary_group: group, flair_group: group)
       group_user = Fabricate(:group_user, group: group, user: user)
-
-      user.expects(:match_primary_group_changes).once
       group_user.destroy!
 
       user.reload
@@ -343,6 +392,28 @@ RSpec.describe GroupUser do
         "trust_level_1",
         "trust_level_2",
       )
+    end
+
+    it "restores title from another group when removed from title group" do
+      other_group = Fabricate(:group, title: "Other Title")
+      Fabricate(:group_user, group: other_group, user: user)
+      group.update!(title: "Main Title")
+      group_user = Fabricate(:group_user, group: group, user: user)
+      user.update!(title: "Main Title")
+
+      group_user.destroy!
+
+      expect(user.reload.title).to eq("Other Title")
+    end
+
+    it "clears title when no other titled group exists" do
+      group.update!(title: "Only Title")
+      group_user = Fabricate(:group_user, group: group, user: user)
+      user.update!(title: "Only Title")
+
+      group_user.destroy!
+
+      expect(user.reload.title).to be_nil
     end
 
     it "protects user trust level if all requirements are met" do
