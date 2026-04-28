@@ -6,6 +6,15 @@ class GroupUser < ActiveRecord::Base
 
   before_create :set_notification_level
 
+  after_save :set_primary_group
+
+  after_save :grant_trust_level
+  after_save :set_category_notifications
+  after_save :set_tag_notifications
+
+  after_commit :increase_group_user_count, on: [:create]
+  after_commit :decrease_group_user_count, on: [:destroy]
+  after_commit :cleanup_inaccessible_notifications, on: [:destroy]
   after_commit :sync_add_via_manager, on: :create
   after_commit :sync_remove_via_manager, on: :destroy
 
@@ -151,6 +160,12 @@ class GroupUser < ActiveRecord::Base
     SQL
   end
   private_class_method :semantically_higher_notification_level_sql
+
+  def cleanup_inaccessible_notifications
+    return if destroyed_by_association&.active_record == User
+
+    Jobs.enqueue(:delete_inaccessible_notifications, user_id: user_id, group_id: group_id)
+  end
 end
 
 # == Schema Information
