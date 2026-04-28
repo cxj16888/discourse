@@ -50,6 +50,10 @@ export default class DMultiSelect extends Component {
     return this.args.label ?? i18n("multi_select.label");
   }
 
+  get noResultsLabel() {
+    return this.args.noResultsLabel ?? i18n("multi_select.no_results");
+  }
+
   @cached
   get data() {
     if (this.isDestroying || this.isDestroyed) {
@@ -235,6 +239,7 @@ export default class DMultiSelect extends Component {
       @offset={{@offset}}
       @matchTriggerMinWidth={{@matchTriggerMinWidth}}
       @matchTriggerWidth={{@matchTriggerWidth}}
+      @onRegisterApi={{@onRegisterDMenuApi}}
       ...attributes
     >
       <:trigger>
@@ -242,6 +247,7 @@ export default class DMultiSelect extends Component {
           <div class="d-multi-select-trigger__selection">
             {{#each @selection as |item|}}
               <button
+                type="button"
                 class="d-multi-select-trigger__selected-item"
                 {{on "click" (fn this.remove item)}}
                 title={{this.getDisplayText item}}
@@ -268,7 +274,10 @@ export default class DMultiSelect extends Component {
         />
       </:trigger>
       <:content>
-        <DropdownMenu class="d-multi-select__content" as |menu|>
+        <DropdownMenu
+          class={{concatClass "d-multi-select__content" @contentClass}}
+          as |menu|
+        >
           <menu.item class="d-multi-select__search-container">
             {{icon "magnifying-glass"}}
             <TextField
@@ -320,7 +329,7 @@ export default class DMultiSelect extends Component {
               </div>
             {{else}}
               <div class="d-multi-select__search-no-results">
-                {{i18n "multi_select.no_results"}}
+                {{this.noResultsLabel}}
               </div>
             {{/if}}
           {{/if}}
