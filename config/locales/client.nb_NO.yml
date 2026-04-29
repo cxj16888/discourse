@@ -2936,6 +2936,7 @@ nb_NO:
       collapse: "Fold sammen"
       no_replies: "Ingen svar ennå."
       deleted_post_placeholder: "[slettet]"
+      ignored_post_placeholder: "[ignorert]"
       pinned_reply: "Fastsatt"
     topic:
       filter_to:
@@ -3740,7 +3741,7 @@ nb_NO:
           low: "Lav"
           high: "Høy"
       sort_options:
-        default: "forvalg"
+        default: "Forvalg"
         likes: "Likes"
         views: "Visninger"
         posts: "Innlegg"

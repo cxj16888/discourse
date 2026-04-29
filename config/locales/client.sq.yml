@@ -3015,6 +3015,7 @@ sq:
         other: "%{count} përgjigje"
       collapse: "Zvogëloni"
       no_replies: "Nuk ka ende përgjigje."
+      ignored_post_placeholder: "[injoruar]"
       pinned_reply: "E përzgjedhur"
     topic:
       filter_to:
@@ -3543,7 +3544,7 @@ sq:
         options:
           normal: "Normal"
       sort_options:
-        default: "paracaktuar"
+        default: "Paracaktuar"
         likes: "Pëlqime"
         views: "Shikimet"
         posts: "Postime"

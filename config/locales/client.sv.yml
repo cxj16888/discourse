@@ -2750,6 +2750,7 @@ sv:
       collapse: "Förminska"
       no_replies: "Inga svar ännu."
       deleted_post_placeholder: "[raderade]"
+      ignored_post_placeholder: "[ignorerade]"
       pinned_reply: "Fäst"
     topic:
       filter_to:

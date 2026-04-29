@@ -3217,6 +3217,7 @@ pt:
       collapse: "Colapsar"
       no_replies: "Ainda sem respostas."
       deleted_post_placeholder: "[eliminado]"
+      ignored_post_placeholder: "[ignorados]"
       pinned_reply: "Fixado"
     topic:
       filter_to:
@@ -3969,7 +3970,7 @@ pt:
           low: "Baixa"
           high: "Elevado"
       sort_options:
-        default: "predefinida"
+        default: "Predefinição"
         likes: "Gostos"
         views: "Vistas"
         posts: "Publicações"

@@ -2818,6 +2818,7 @@ lt:
       collapse: "Suskleisti"
       no_replies: "Jokių atsakymų nerasta."
       deleted_post_placeholder: "[ištrinta]"
+      ignored_post_placeholder: "[nepaisoma]"
       pinned_reply: "Prisegta"
     topic:
       filter_to:
@@ -3511,7 +3512,7 @@ lt:
           low: "Žemas"
           high: "Aukštas"
       sort_options:
-        default: "numatytasis"
+        default: "Numatytasis"
         likes: "Mėgsta"
         views: "Peržiūros"
         posts: "įrašai"

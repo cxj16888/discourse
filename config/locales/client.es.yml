@@ -3660,6 +3660,7 @@ es:
       collapse: "Contraer"
       no_replies: "No hay respuestas aún."
       deleted_post_placeholder: "[eliminado]"
+      ignored_post_placeholder: "[ignorados]"
       pinned_reply: "Anclado"
     topic:
       filter_to:
@@ -4652,7 +4653,7 @@ es:
           high: "Alta"
           very_high: "Muy alta"
       sort_options:
-        default: "por defecto"
+        default: "Por defecto"
         likes: "Me gusta"
         op_likes: "Me gusta en la primera publicación"
         views: "Vistas"

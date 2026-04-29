@@ -4094,6 +4094,7 @@ uk:
         default_nested_view: "Використовувати вкладений вигляд за замовчуванням для тем цієї категорії"
       no_replies: "Ще не написав жодного повідомлення."
       deleted_post_placeholder: "[вилучено]"
+      ignored_post_placeholder: "[ігноровано]"
       op_badge: "OP"
       pinned_reply: "Закріплені"
       pin_reply: "Закріпити вгорі"
@@ -5209,7 +5210,7 @@ uk:
           high: "Високий"
           very_high: "Дуже високий"
       sort_options:
-        default: "типово"
+        default: "Стандартна"
         likes: "Вподобання"
         op_likes: "Вподобання оригінального допису"
         views: "Перегляди"

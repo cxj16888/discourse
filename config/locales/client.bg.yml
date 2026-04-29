@@ -2417,6 +2417,7 @@ bg:
       collapse: "Намали"
       no_replies: "Все още няма отговори."
       deleted_post_placeholder: "[изтрита]"
+      ignored_post_placeholder: "[игнориран]"
       pinned_reply: "Закована"
     topic:
       create: "Нова тема"
@@ -2994,7 +2995,7 @@ bg:
           low: "Ниска"
           high: "Висок"
       sort_options:
-        default: "по подразбиране"
+        default: "По подразбиране"
         likes: "Харесвания"
         views: "Преглеждания"
         posts: "Публикации"

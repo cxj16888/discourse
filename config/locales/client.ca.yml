@@ -2006,6 +2006,7 @@ ca:
       collapse: "Redueix"
       no_replies: "Encara sense respostes"
       deleted_post_placeholder: "[suprimit]"
+      ignored_post_placeholder: "[ignorat]"
       pinned_reply: "Afixat"
     topic:
       filter_to:
@@ -2576,7 +2577,7 @@ ca:
           low: "Baixa"
           high: "Alta"
       sort_options:
-        default: "per defecte"
+        default: "Per defecte"
         likes: "'M'agrada'"
         views: "Vistes"
         posts: "Publicacions"

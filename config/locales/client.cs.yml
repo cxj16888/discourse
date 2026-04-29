@@ -3832,6 +3832,7 @@ cs:
       collapse: "Sbalit"
       no_replies: "Zatím žádné odpovědi."
       deleted_post_placeholder: "[smazáno]"
+      ignored_post_placeholder: "[ignorováno]"
       pinned_reply: "Připnuto"
     topic:
       filter_to:
@@ -4875,7 +4876,7 @@ cs:
           high: "Vysoká"
           very_high: "Velmi vysoká"
       sort_options:
-        default: "výchozí"
+        default: "Výchozí"
         likes: "Líbí se"
         op_likes: "Líbí se v úvodním příspěvku"
         views: "Zobrazení"

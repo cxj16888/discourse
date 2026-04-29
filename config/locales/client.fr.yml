@@ -3333,6 +3333,7 @@ fr:
       collapse: "Réduire"
       no_replies: "Pas encore de réponse."
       deleted_post_placeholder: "[supprimés]"
+      ignored_post_placeholder: "[ignoré]"
       pinned_reply: "Épinglé"
     topic:
       filter_to:
@@ -4225,7 +4226,7 @@ fr:
           low: "Faible"
           high: "Élevée"
       sort_options:
-        default: "par défaut"
+        default: "Par défaut"
         likes: "« J'aime »"
         views: "Vues"
         posts: "Messages"

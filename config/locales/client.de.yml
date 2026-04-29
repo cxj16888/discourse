@@ -3668,6 +3668,7 @@ de:
       collapse: "Zuklappen"
       no_replies: "Noch keine Antworten."
       deleted_post_placeholder: "[gelöscht]"
+      ignored_post_placeholder: "[ignoriert]"
       pinned_reply: "Angeheftet"
     topic:
       filter_to:

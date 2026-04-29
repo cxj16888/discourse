@@ -1700,7 +1700,7 @@ be:
         options:
           ignore: "Ігнараваць"
       sort_options:
-        default: "прадвызначана"
+        default: "Прадвызначаная"
         likes: "Падабайкі"
         views: "Прагляды"
         posts: "Допісы"

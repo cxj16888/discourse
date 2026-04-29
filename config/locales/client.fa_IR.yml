@@ -3101,6 +3101,7 @@ fa_IR:
       collapse: "جمع کردن"
       no_replies: "بدون پاسخ"
       deleted_post_placeholder: "[حذف شده]"
+      ignored_post_placeholder: "[صرف نظر شده]"
       pinned_reply: "سنجاق شده"
     topic:
       filter_to:
