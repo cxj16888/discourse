@@ -4465,7 +4465,7 @@ el:
           high: "Υψηλή"
           very_high: "Πολύ υψηλή"
       sort_options:
-        default: "προεπιλογή"
+        default: "Προεπιλογή"
         likes: "Αρέσει"
         views: "Προβολές"
         posts: "Αναρτήσεις"

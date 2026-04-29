@@ -2174,6 +2174,7 @@ gl:
       collapse: "Pregar"
       no_replies: "Aínda sen respostas."
       deleted_post_placeholder: "[eliminado]"
+      ignored_post_placeholder: "[ignorado]"
       pinned_reply: "Fixado"
     topic:
       filter_to:
@@ -2855,7 +2856,7 @@ gl:
           low: "Baixa"
           high: "Alta"
       sort_options:
-        default: "predeterminado"
+        default: "Predeterminado"
         likes: "Gústames"
         views: "Vistas"
         posts: "Publicacións"

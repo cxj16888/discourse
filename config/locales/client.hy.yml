@@ -2610,6 +2610,7 @@ hy:
       collapse: "Կրճատել"
       no_replies: "Պատասխաններ դեռևս չկան:"
       deleted_post_placeholder: "[ջնջված է]"
+      ignored_post_placeholder: "[անտեսված]"
       pinned_reply: "Ամրակցված"
     topic:
       filter_to:
@@ -3233,7 +3234,7 @@ hy:
           low: "Բարձր"
           high: "Բարձր"
       sort_options:
-        default: "լռելյայն"
+        default: "Լռելյայն"
         likes: "Հավանումների"
         views: "Դիտումների"
         posts: "Գրառումների"

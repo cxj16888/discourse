@@ -1929,6 +1929,7 @@ lv:
       collapse: "Sakļaut"
       no_replies: "Vēl nav atbilžu."
       deleted_post_placeholder: "[dzēsts]"
+      ignored_post_placeholder: "[ignorēts]"
       pinned_reply: "Piesprausts"
     topic:
       filter_to:
@@ -2399,7 +2400,7 @@ lv:
           low: "Zems"
           high: "Augsta"
       sort_options:
-        default: "noklusējuma"
+        default: "Noklusējums"
         likes: "Atzinības"
         views: "Skatījumi"
         posts: "Ieraksti"

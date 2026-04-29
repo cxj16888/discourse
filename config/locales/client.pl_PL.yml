@@ -4089,6 +4089,8 @@ pl_PL:
         default_nested_view: "Użyj widoku zagnieżdżonego jako domyślnego dla tematów w tej kategorii"
       no_replies: "Nie ma jeszcze odpowiedzi."
       deleted_post_placeholder: "[usunięty]"
+      ignored_post_placeholder: "[zignorowano]"
+      toggle_ignored_content: "Pokaż zignorowaną treść"
       op_badge: "OP"
       pinned_reply: "Przypięty"
       pin_reply: "Przypnij na górę"
@@ -5204,7 +5206,7 @@ pl_PL:
           high: "Wysoki"
           very_high: "Bardzo wysoki"
       sort_options:
-        default: "domyślny"
+        default: "Domyślny"
         likes: "Polubienia"
         op_likes: "Polubienia pierwszego wpisu"
         views: "Odsłony"
@@ -5215,6 +5217,7 @@ pl_PL:
         created: "Utworzony"
       sort_ascending: "Rosnąco"
       sort_descending: "Malejąco"
+      sort_direction: "Kierunek sortowania"
       subcategory_list_styles:
         rows: "Rzędy"
         rows_with_featured_topics: "Rzędy z wybranymi tematami"

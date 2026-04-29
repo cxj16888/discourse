@@ -2014,6 +2014,7 @@ bs_BA:
       collapse: "Spusti"
       no_replies: "Bez odgovora."
       deleted_post_placeholder: "[isbrisano]"
+      ignored_post_placeholder: "[ignorisano]"
       pinned_reply: "Zakačena"
     topic:
       filter_to:
@@ -2603,7 +2604,7 @@ bs_BA:
           low: "Nisko"
           high: "Visoko"
       sort_options:
-        default: "obićno"
+        default: "Uobičajen"
         likes: "Sviđanja"
         views: "Pogledano"
         posts: "Objava"

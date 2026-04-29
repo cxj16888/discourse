@@ -2838,6 +2838,7 @@ da:
       collapse: "Fold sammen"
       no_replies: "Ingen svar, endnu."
       deleted_post_placeholder: "[slettet]"
+      ignored_post_placeholder: "[ignorerede]"
       pinned_reply: "Fastgjort"
     topic:
       filter_to:
@@ -3589,7 +3590,7 @@ da:
           low: "Lav"
           high: "Høj"
       sort_options:
-        default: "standard"
+        default: "Standard"
         likes: "Synes godt om"
         views: "Visninger"
         posts: "Indlæg"

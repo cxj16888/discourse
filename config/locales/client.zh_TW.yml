@@ -2996,6 +2996,7 @@ zh_TW:
       collapse: "收起"
       no_replies: "暫無回覆。"
       deleted_post_placeholder: "[刪除]"
+      ignored_post_placeholder: "[已忽略]"
       pinned_reply: "已釘選"
     topic:
       filter_to:

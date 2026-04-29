@@ -2226,7 +2226,7 @@ sr:
           normal: "Normalno"
           high: "Visoko"
       sort_options:
-        default: "zadato"
+        default: "Подразумевано"
         likes: "Lajkovi"
         views: "Pregledi"
         posts: "Poruka"

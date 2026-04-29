@@ -3558,6 +3558,7 @@ sk:
         other: "%{count} odpovedí"
       collapse: "Zbaliť"
       no_replies: "Zatiaľ žiadne odpovede."
+      ignored_post_placeholder: "[ignorovať]"
       pinned_reply: "Pripnutý"
     topic:
       filter_to:
@@ -4519,7 +4520,7 @@ sk:
           low: "Nízka"
           high: "Vysoká"
       sort_options:
-        default: "predvolené"
+        default: "Predvolené"
         likes: "Páči sa mi"
         views: "Zobrazenia"
         posts: "Príspevky"

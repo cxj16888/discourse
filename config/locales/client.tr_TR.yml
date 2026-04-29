@@ -3690,6 +3690,7 @@ tr_TR:
         default_nested_view: "Bu kategorideki başlıklar için varsayılan olarak iç içe geçmiş görünümü kullan"
       no_replies: "Henüz yanıt yok."
       deleted_post_placeholder: "[silindi]"
+      ignored_post_placeholder: "[yok Sayıldı]"
       op_badge: "OP"
       pinned_reply: "Sabitlendi"
       pin_reply: "En üste sabitle"
@@ -4707,7 +4708,7 @@ tr_TR:
           high: "Yüksek"
           very_high: "Çok yüksek"
       sort_options:
-        default: "varsayılan"
+        default: "Varsayılan"
         likes: "Beğeniler"
         op_likes: "Orijinal gönderi beğenileri"
         views: "Görüntülemeler"

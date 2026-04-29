@@ -1673,6 +1673,7 @@ th:
       collapse: "ย่อ"
       no_replies: "ยังไม่มีคำตอบ"
       deleted_post_placeholder: "[ลบ]"
+      ignored_post_placeholder: "[ละเว้นแล้ว]"
       pinned_reply: "ปักหมุดแล้ว"
     topic:
       filter_to:

@@ -2609,6 +2609,7 @@ ro:
       collapse: "Colaps"
       no_replies: "Nici un răspuns încă."
       deleted_post_placeholder: "[șters]"
+      ignored_post_placeholder: "[ignorat]"
       pinned_reply: "Fixat"
     topic:
       filter_to:
@@ -3247,7 +3248,7 @@ ro:
           low: "Scăzut"
           high: "Ridicată"
       sort_options:
-        default: "implicit"
+        default: "Implicit"
         likes: "Aprecieri"
         views: "Vizualizări"
         posts: "Postări"

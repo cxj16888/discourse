@@ -3277,6 +3277,7 @@ vi:
       collapse: "Thu gọn"
       no_replies: "Chưa có trả lời."
       deleted_post_placeholder: "[đã xóa]"
+      ignored_post_placeholder: "[đã bỏ qua]"
       pinned_reply: "Đã ghim"
     topic:
       filter_to:
@@ -4178,7 +4179,7 @@ vi:
           high: "Cao"
           very_high: "Rất cao"
       sort_options:
-        default: "mặc định"
+        default: "Mặc định"
         likes: "Thích"
         op_likes: "Lượt thích tút gốc"
         views: "Xem"

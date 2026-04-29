@@ -1735,6 +1735,7 @@ et:
         other: "%{count} vastust"
       collapse: "Ahenda"
       no_replies: "Veel ei ole vastuseid."
+      ignored_post_placeholder: "[ignoreeritud]"
       pinned_reply: "Esiletõstetud"
     topic:
       filter_to:
@@ -2286,7 +2287,7 @@ et:
           ignore: "Ignoreeri"
           high: "Kõrge"
       sort_options:
-        default: "vaikimisi"
+        default: "Vaikimisi"
         likes: "Meeldimisi"
         views: "Vaatamisi"
         posts: "Postitused"

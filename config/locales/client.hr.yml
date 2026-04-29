@@ -3501,6 +3501,7 @@ hr:
       collapse: "Sakrij"
       no_replies: "Još nema odgovora."
       deleted_post_placeholder: "[izbrisao]"
+      ignored_post_placeholder: "[ignorirano]"
       pinned_reply: "Zakvačeno"
     topic:
       filter_to:
@@ -4424,7 +4425,7 @@ hr:
           low: "Nizak"
           high: "Visok"
       sort_options:
-        default: "zadano"
+        default: "Zadano"
         likes: "Like-ova"
         views: "Pregledi"
         posts: "Objave"

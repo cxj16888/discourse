@@ -3562,6 +3562,7 @@ hu:
       collapse: "Összecsukás"
       no_replies: "Még nincsenek hozzászólások."
       deleted_post_placeholder: "[törölve]"
+      ignored_post_placeholder: "[figyelmen kívül hagyott]"
       pinned_reply: "Kiemelt"
     topic:
       filter_to:
@@ -4532,7 +4533,7 @@ hu:
           high: "Magas"
           very_high: "Nagyon magas"
       sort_options:
-        default: "alapértelmezett"
+        default: "Alapértelmezett"
         likes: "Kedvelések"
         op_likes: "Eredeti bejegyzés kedvelései"
         views: "Megtekintések"

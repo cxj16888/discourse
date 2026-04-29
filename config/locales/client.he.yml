@@ -3786,6 +3786,7 @@ he:
       collapse: "צמצום"
       no_replies: "עדיין אין תגובות."
       deleted_post_placeholder: "[נמחק]"
+      ignored_post_placeholder: "[זכה להתעלמות]"
       pinned_reply: "נעוץ"
     topic:
       filter_to:

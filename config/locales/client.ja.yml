@@ -3275,6 +3275,7 @@ ja:
       collapse: "折りたたむ"
       no_replies: "まだ返信はありません。"
       deleted_post_placeholder: "[削除済み]"
+      ignored_post_placeholder: "[無視]"
       pinned_reply: "固定"
     topic:
       filter_to:

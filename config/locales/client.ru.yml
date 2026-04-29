@@ -3906,6 +3906,7 @@ ru:
       collapse: "Свернуть"
       no_replies: "Ответов пока нет."
       deleted_post_placeholder: "[удалённые]"
+      ignored_post_placeholder: "[игнорировать]"
       pinned_reply: "Закреплена"
     topic:
       filter_to:
@@ -4967,7 +4968,7 @@ ru:
           high: "Высокий"
           very_high: "Очень высокий"
       sort_options:
-        default: "по умолчанию"
+        default: "Домашнюю страницу"
         likes: "Количество лайков"
         views: "Количество просмотров"
         posts: "Количество сообщений"

@@ -2722,6 +2722,7 @@ te:
         other: "%{count} ప్రత్యుత్తరాలు"
       collapse: "కుదించండి"
       no_replies: "ఇంకా ప్రత్యుత్తరాలు లేవు."
+      ignored_post_placeholder: "[విస్మరించబడిన]"
       pinned_reply: "పిన్ చేయబడింది"
     topic:
       filter_to:

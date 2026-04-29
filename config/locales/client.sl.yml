@@ -2392,6 +2392,7 @@ sl:
       collapse: "Skrči"
       no_replies: "Ni odgovorov."
       deleted_post_placeholder: "[izbrisano]"
+      ignored_post_placeholder: "[prezrti]"
       pinned_reply: "Pripeto"
     topic:
       filter_to:
@@ -3092,7 +3093,7 @@ sl:
           low: "Nizka"
           high: "Visoka"
       sort_options:
-        default: "privzeto"
+        default: "Privzeto"
         likes: "Všečki"
         views: "Ogledi"
         posts: "Prispevki"

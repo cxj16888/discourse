@@ -3315,6 +3315,7 @@ it:
       collapse: "Comprimi"
       no_replies: "Ancora nessuna risposta."
       deleted_post_placeholder: "[eliminato]"
+      ignored_post_placeholder: "[ignorato]"
       pinned_reply: "Appuntato"
     topic:
       filter_to:
@@ -4196,7 +4197,7 @@ it:
           low: "Bassa"
           high: "Alta"
       sort_options:
-        default: "predefinito"
+        default: "Predefinito"
         likes: "Mi piace"
         views: "Visualizzazioni"
         posts: "Messaggi"

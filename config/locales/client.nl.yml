@@ -3378,6 +3378,7 @@ nl:
       collapse: "Samenvouwen"
       no_replies: "Nog geen antwoorden."
       deleted_post_placeholder: "[verwijderd]"
+      ignored_post_placeholder: "[genegeerd]"
       pinned_reply: "Vastgemaakt"
     topic:
       filter_to:
@@ -4263,7 +4264,7 @@ nl:
           low: "Laag"
           high: "Hoog"
       sort_options:
-        default: "standaard"
+        default: "Standaard"
         likes: "Likes"
         views: "Weergaven"
         posts: "Berichten"
