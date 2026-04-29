@@ -16,7 +16,7 @@
   "dependencies": {
     "@babel/core": "^7.28.5",
     "@ember/render-modifiers": "^3.0.0",
-    "@floating-ui/dom": "^1.7.4",
+    "@floating-ui/dom": "^1.7.6",
     "ember-auto-import": "^2.11.1",
     "ember-cli-babel": "^8.2.0",
     "ember-cli-htmlbars": "^6.3.0",
