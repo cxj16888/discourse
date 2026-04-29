@@ -37,6 +37,7 @@ export const VALUE_TRANSFORMERS = Object.freeze([
   "admin-reports-show-query-params",
   "bulk-select-in-nav-controls",
   "category-available-views",
+  "category-boxes-url",
   "category-default-colors",
   "category-description-text",
   "category-display-name",
