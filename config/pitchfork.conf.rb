@@ -125,6 +125,8 @@ before_service_worker_ready do |server, service_worker|
 
   Demon::PluginJsWatcher.start(verbose: true) if Rails.env.development? && !ENV["CI"]
 
+  EmberCli.watch! if Rails.env.development?
+
   Thread.new do
     while true
       begin

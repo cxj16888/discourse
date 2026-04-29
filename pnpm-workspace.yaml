@@ -1,7 +1,8 @@
 strictPeerDependencies: true
+onlyBuiltDependencies:
+  - "@ember/render-modifiers"
 packages:
 - "docs/developer-guides"
-- "frontend/custom-proxy"
 - "frontend/deprecation-silencer"
 - "frontend/discourse"
 - "frontend/discourse-i18n"

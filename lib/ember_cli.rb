@@ -15,31 +15,65 @@ class EmberCli < ActiveSupport::CurrentAttributes
   def self.script_chunks
     return cache[:script_chunks] if cache[:script_chunks]
 
-    chunk_infos = JSON.parse(File.read("#{dist_dir}/assets.json"))
+    entrypoints = {}
 
-    chunk_infos.transform_keys! { |key| key.delete_prefix("assets/").delete_suffix(".js") }
+    manifest = JSON.parse(File.read("#{dist_dir}/manifest/manifest.json"))
 
-    chunk_infos.transform_values! do |value|
-      value["assets"].map { |chunk| chunk.delete_prefix("assets/").delete_suffix(".js") }
+    manifest.each do |key, value|
+      next unless value["isEntry"]
+      entrypoints[key.delete_suffix(".js")] = [
+        value["file"].delete_prefix("assets/").delete_suffix(".js"),
+      ]
     end
 
-    # Special case - vendor.js is fingerprinted by Embroider in production, but not run through Webpack
-    if !assets.include?("vendor.js") &&
-         fingerprinted = assets.find { |a| a.match?(/^vendor\..*\.js$/) }
-      chunk_infos["vendor"] = [fingerprinted.delete_suffix(".js")]
-    end
+    entrypoints["@embroider/virtual/test-support"] = ["test-support"]
 
-    cache[:script_chunks] = chunk_infos
+    cache[:script_chunks] = entrypoints
   rescue Errno::ENOENT
     {}
   end
 
+  def self.route_bundles
+    manifest = JSON.parse(File.read("#{dist_dir}/manifest/manifest.json"))
+
+    route_bundles = {}
+
+    manifest.each do |key, value|
+      next unless route = key[/\Aembroider_virtual:.*:route=(.*)\z/, 1]
+      route_bundles[route] = deep_preloads_for(key)
+    end
+
+    route_bundles
+  rescue Errno::ENOENT
+    {}
+  end
+
+  def self.deep_preloads_for(asset)
+    manifest = JSON.parse(File.read("#{dist_dir}/manifest.json"))
+
+    preloads = []
+    seen = Set.new
+    seen.add(asset)
+
+    asset = manifest[asset]
+    preloads.push asset["file"].delete_prefix("assets/").delete_suffix(".js")
+
+    asset["imports"]&.each do |import|
+      next if seen.include?(import)
+      seen.add(import)
+      preloads.push(*deep_preloads_for(import))
+    end
+
+    preloads
+  end
+
   def self.is_ember_cli_asset?(name)
-    assets.include?(name) || script_chunks.values.flatten.include?(name.delete_suffix(".js"))
+    name === "@embroider/virtual/test-support" || assets.include?(name) ||
+      script_chunks.values.flatten.include?(name.delete_suffix(".js"))
   end
 
   def self.has_tests?
-    File.exist?("#{dist_dir}/tests/index.html")
+    script_chunks["tests/test-entrypoint"].present?
   end
 
   def self.cache
@@ -53,5 +87,17 @@ class EmberCli < ActiveSupport::CurrentAttributes
   def self.clear_cache!
     self.request_cache = nil
     @production_cache = nil
+  end
+
+  def self.watch!
+    FileUtils.mkdir_p("#{dist_dir}/manifest")
+    Listen
+      .to("#{dist_dir}/manifest") do |modified, added, removed|
+        # if [*modified, *added, *removed].any? { |path| path.end_with?("manifest.json") }
+        puts "refreshing"
+        MessageBus.publish("/file-change", ["refresh"])
+        # end
+      end
+      .start
   end
 end

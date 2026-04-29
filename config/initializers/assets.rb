@@ -12,6 +12,8 @@ Rails.application.config.assets.version = "2-#{GlobalSetting.asset_url_salt}"
 Rails.application.config.assets.paths.push(
   "#{Rails.root}/public/javascripts",
   "#{Rails.root}/frontend/discourse/dist/assets",
+  "#{Rails.root}/frontend/discourse/dist/@embroider/virtual",
+  "#{Rails.root}/frontend/discourse/scripts",
 )
 
 Rails.application.config.assets.paths.push(
